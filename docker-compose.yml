@@ -1,0 +1,63 @@
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./app:/var/www/app
+            - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+        working_dir: /var/www/app
+        depends_on:
+            - php-fpm
+
+    php-cli:
+        build:
+            context: .
+            dockerfile: ./docker/php/php-cli.docker
+        environment:
+            APP_ENV: dev
+            PHP_MEMORY_LIMIT: 2G
+            COMPOSER_PROCESS_TIMEOUT: 1200
+        command: >
+            bash -c "php -d memory_limit=1G bin/console cache:clear"
+        volumes:
+            - ./app:/var/www/app
+        working_dir: /var/www/app
+
+        depends_on:
+            - mysqldb
+
+    php-fpm:
+        build:
+            context: .
+            dockerfile: ./docker/php/php-fpm.docker
+        environment:
+            APP_ENV: dev
+        volumes:
+            - ./app:/var/www/app
+        working_dir: /var/www/app
+        depends_on:
+            - mysqldb
+
+    mysqldb:
+        image: mysql:latest
+        #        restart: always
+        volumes:
+            - mysqldata:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: sylius
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: sylius
+            MYSQL_USER: sylius
+        ports:
+            - "3306:3306"
+
+    manager-node:
+        image: node:20-alpine
+        volumes:
+            - ./app:/var/www/app
+        working_dir: /var/www/app
+
+volumes:
+    mysqldata:
+        driver: local
