@@ -9,5 +9,11 @@
   },
   "devDependencies": {
     "@sylius-ui/frontend": "^1.0"
+  },
+  "dependencies": {
+    "@webtoon/psd": "^0.4.0",
+    "file-type": "^19.0.0",
+    "fs-extra": "^11.2.0",
+    "psd": "^3.4.0"
   }
 }

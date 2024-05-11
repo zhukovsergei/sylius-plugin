@@ -1,4 +1,4 @@
-## Installation
+## Installation Sylius
 ### Docker
 1. docker-compose build
 2. docker-compose run --rm php-cli composer install
@@ -9,3 +9,16 @@
 2. docker-compose run --rm php-cli php bin/console doctrine:mi:mi  
 3. docker-compose run --rm php-cli php bin/console doctrine:fixtures:load 
 4. docker-compose up -d
+
+## Installation Node
+`docker-compose run --rm manager-node npm install @webtoon/psd fs-extra psd`
+### Run it
+` docker-compose run --rm manager-node node psd_extractor.mjs layers.psd`
+### Output:
+``` 
+Total layers found: 5
+Inspecting layer: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do, visible: true, kind: undefined
+Inspecting layer: triangle_yellow, visible: true, kind: undefined
+Inspecting layer: square_red, visible: true, kind: undefined
+Inspecting layer: circle_blue, visible: true, kind: undefined
+Inspecting layer: green, visible: true, kind: undefined
