@@ -12,7 +12,7 @@
 
 ## Installation Node
 `docker-compose run --rm manager-node npm install @webtoon/psd fs-extra psd`
-### Run it
+### Run it [PSD]
 ` docker-compose run --rm manager-node node psd_extractor.mjs layers.psd`
 ### Output:
 ``` 
@@ -22,3 +22,16 @@ Inspecting layer: triangle_yellow, visible: true, kind: undefined
 Inspecting layer: square_red, visible: true, kind: undefined
 Inspecting layer: circle_blue, visible: true, kind: undefined
 Inspecting layer: green, visible: true, kind: undefined
+```
+
+### Run it [PNG]
+`docker-compose run --rm manager-node node psd_extractor.mjs mole.png `
+
+### Output:
+```
+Segment 1 saved at extracted_data/segment_1.png
+Segment 2 saved at extracted_data/segment_2.png
+Segment 3 saved at extracted_data/segment_3.png
+Segment 4 saved at extracted_data/segment_4.png
+
+```
