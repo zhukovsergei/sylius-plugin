@@ -4,6 +4,7 @@ namespace App\Entity\Sticker;
 
 use App\Repository\StickerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Product\Model\ProductVariantInterface;
 
 #[ORM\Entity(repositoryClass: StickerRepository::class)]
 #[ORM\Table(name: 'stickers')]
