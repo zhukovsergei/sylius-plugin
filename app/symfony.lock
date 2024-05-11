@@ -88,6 +88,18 @@
             "ref": "ae205d5114e719deb64d2110f56ef910787d1e04"
         }
     },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "1f5514cfa15b947298df4d771e694e578d4c204d"
+        },
+        "files": [
+            "src/DataFixtures/AppFixtures.php"
+        ]
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
         "recipe": {
@@ -554,6 +566,15 @@
     "sylius/resource-bundle": {
         "version": "v1.4.4"
     },
+    "sylius/state-machine-abstraction": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/Sylius/SyliusRecipes",
+            "branch": "main",
+            "version": "1.13",
+            "ref": "d538f7c966e2d796543c3be72cb65072bf74504e"
+        }
+    },
     "sylius/sylius": {
         "version": "v1.3.6"
     },
@@ -676,6 +697,15 @@
         "files": [
             "config/packages/mailer.yaml"
         ]
+    },
+    "symfony/maker-bundle": {
+        "version": "1.59",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
     },
     "symfony/messenger": {
         "version": "4.3",
