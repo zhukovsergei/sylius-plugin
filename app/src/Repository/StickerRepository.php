@@ -16,6 +16,15 @@ class StickerRepository extends ServiceEntityRepository
         parent::__construct($registry, Sticker::class);
     }
 
+    public function findRandomSticker(): ?Sticker
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('RAND()')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Sticker[] Returns an array of Sticker objects
     //     */
